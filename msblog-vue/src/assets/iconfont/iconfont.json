@@ -1,0 +1,51 @@
+{
+  "id": "2491691",
+  "name": "crm",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "21264601",
+      "name": "cus-pwd",
+      "font_class": "cus-pwd",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
+      "icon_id": "21264602",
+      "name": "cus-user",
+      "font_class": "cus-user",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    },
+    {
+      "icon_id": "21039568",
+      "name": "cus-delete",
+      "font_class": "cus-delete",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "21039569",
+      "name": "cus-upload",
+      "font_class": "cus-upload",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "21039570",
+      "name": "cus-download",
+      "font_class": "cus-download",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "21039571",
+      "name": "cus-validation",
+      "font_class": "cus-validation",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    }
+  ]
+}

@@ -1,0 +1,344 @@
+// search搜索部分样式覆盖eleemnt
+.search {
+  .search-time {
+    .el-input__inner {
+      font-size: 14px;
+      color: #332929;
+      height: 40px;
+      line-height: 40px;
+      background: #f9f9f9;
+      border: 1px solid #e9e9eb;
+      border-radius: 7px;
+      &:hover{
+        border: 1px solid #c8c8c8;
+      }
+      &:focus{
+        border: 1px solid #05cc95;
+      }
+    }
+    .el-input__inner {
+      background: #f9f9f9;
+    }
+    .el-date-editor .el-range-input {
+      background: #f9f9f9;
+      
+    }
+    .el-input__count {
+      background: #f9f9f9;
+    }
+    .el-textarea__inner {
+      font-size: 14px;
+      color: #332929;
+      background: #f9f9f9;
+      border: 1px solid #e9e9eb;
+      border-radius: 7px;
+      &:hover{
+        border: 1px solid #c8c8c8;
+      }
+      &:focus{
+        border: 1px solid #05cc95;
+      }
+    }
+    .el-input__inner::placeholder,.el-textarea__inner::placeholder,.vue-treeselect__placeholder{
+      color: #bac0cd;
+    }
+    .el-range-editor--medium .el-range-separator {
+      color: #333333;
+      line-height: 32px;
+    }
+
+    // 重绘
+    .el-form-item__label {
+      font-size: 12px;
+      font-family: PingFangSC, PingFangSC-Medium;
+      font-weight: 500;
+      text-align: left;
+      color: #666666;
+    }
+  }
+}
+
+
+
+.customer-all {
+  .title-export {
+    width: 100%;
+    height: 80px;
+    line-height: 80px;
+    background-color: #f9f9f9;
+    display: flex;
+    .title, .export {
+      flex: 1;
+    }
+    .title {
+      h3 {
+        margin: 0;
+        margin-left: 20px;
+        font-size: 14px;
+        font-family: PingFangSC, PingFangSC-Medium;
+        font-weight: 550;
+        text-align: left;
+        color: #333333;
+      }
+
+    }
+
+    .export {
+      text-align: right;
+      .customer-btn {
+        margin-right: 56px;
+      }
+    }
+  }
+}
+
+
+// 首页搜索部分样式重构
+.search-title-box {
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 22px 0px;
+  .el-form-item {
+    // width: 25%;
+    // flex: 1;
+    margin-left: 0;
+    padding-left: 28px;
+    display: flex;
+    flex-wrap: wrap;
+    // 换行显示label
+    // flex-flow: column;
+    margin-bottom: 0;
+    .el-form-item__label {
+      font-size: 12px;
+      color: #666666;
+      font-size: 12px;
+      font-family: PingFangSC, PingFangSC-Medium;
+      font-weight: 550;
+      text-align: left;
+    }
+    .el-form-item__content {
+      flex: 1;
+      .el-input__inner {
+        font-size: 14px;
+        color: #332929;
+        height: 40px;
+        line-height: 40px;
+        background: #f9f9f9;
+        border: 1px solid #e9e9eb;
+        border-radius: 7px;
+        &:hover{
+          border: 1px solid #c8c8c8;
+        }
+        &:focus{
+          border: 1px solid #05cc95;
+        }
+      }
+      .vue-treeselect__control {
+        font-size: 14px;
+        color: #332929;
+        height: 38px;
+        line-height: 38px;
+        background: #f9f9f9;
+        border: 1px solid #e9e9eb;
+        border-radius: 7px;
+        text-align: left;
+        &:hover{
+          border: 1px solid #c8c8c8;
+        }
+        &:focus{
+          border: 1px solid #05cc95;
+        }
+        .vue-treeselect__placeholder, .vue-treeselect__single-value{
+          line-height: 38px !important;
+        }
+      }
+      .el-date-editor .el-range-input {
+        background: #f9f9f9;
+      }
+      .el-input__count {
+        background: #f9f9f9;
+      }
+      .el-textarea__inner {
+        font-size: 14px;
+        color: #332929;
+        background: #f9f9f9;
+        border: 1px solid #e9e9eb;
+        border-radius: 7px;
+        &:hover{
+          border: 1px solid #c8c8c8;
+        }
+        &:focus{
+          border: 1px solid #05cc95;
+        }
+      }
+      .el-input__inner::placeholder,.el-textarea__inner::placeholder {
+        color: #bac0cd;
+      }
+      .el-range-separator {
+        color: #333333;
+        line-height: 32px;
+      }
+    }
+  }
+  .search-btn {
+    .el-form-item__content {
+      width: 100%;
+    }
+    .cus-search-btn {
+      text-align: left;
+    }
+    .cus-reset-btn {
+      text-align: right;
+    }
+  }
+  .wp-50{
+    width: 50% !important;
+  }
+  .wp-75{
+    width: 75% !important;
+  }
+  .wp-100{
+    width: 100% !important;
+  }
+}
+
+// 首页table样式定制化
+.index-home {
+  .el-table--medium td {
+    padding: 10px 0;
+  }
+  // 折中去除table最后一行的border-bottom
+  .el-table::before, .el-table--group::after, .el-table--border::after {
+    background-color: #fff;
+  }
+}
+
+
+// 处理滚动条
+.sale-rank-list, .right {
+
+  .el-table {
+    border: none;
+  }
+  .el-table .el-table__header-wrapper th, .el-table .el-table__fixed-header-wrapper th {
+    background-color: #fff !important;
+  }
+
+  .el-table th.is-leaf, .el-table td {
+    border-bottom: 1px dashed #e9e9e8;
+  }
+  // 影响了最后一列无边框
+  // .el-table th.is-leaf:last-child, .el-table td:last-child {
+  //   border-bottom: none;
+  // }
+  .el-scrollbar__wrap {
+    overflow-x: hidden;
+  }
+}
+
+
+// 处理标题和时间选择框
+.sale-title {
+  display: flex;
+  // margin: 36px 0 20px 0;
+  margin-top: 10px;
+  // 新添加的间距
+  margin-bottom: 20px;
+  h2 {
+    margin: 0;
+    margin-top: 26px;
+    // 缩进间距
+    // margin-bottom: 14px;
+    line-height: 40px;
+    font-size: 14px;
+    font-family: PingFangSC, PingFangSC-Medium;
+    font-weight: 550;
+    text-align: left;
+    color: #333333;
+    padding-left: 20px;
+    box-sizing: border-box;
+  }
+  .date {
+    flex: 1;
+    text-align: right;
+    margin-top: 26px;
+    // margin-top: 40px;
+    margin-bottom: 14px;
+    // .search-form {
+    //   display: flex;
+    //   flex-wrap: wrap;
+    //   padding: 0;
+    //   text-align: right;
+    //   // width: 100%;
+    //   .el-form-item {
+    //     margin-bottom: 0px;
+    //     width: 100%;
+    //   }
+    //   // .form-item {
+    //   //   margin-left: 6px;
+    //   //   display: flex;
+    //   //   text-align: right;
+    //   // }
+    // }
+  }
+}
+
+
+// 表格排名部分样式
+.list {
+  border-radius: 6px;
+  background-color: #fff;
+  overflow-x: hidden;
+  overflow-y: auto;
+  .nomal {
+    width: 100%;
+    text-align: center;
+  }
+  .base-span {
+    display: inline-block;
+    font-size: 13px;
+    font-family: PingFangSC, PingFangSC-Medium;
+    font-weight: 550;
+    color: #666677;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    border-radius: 50%;
+    background: linear-gradient(129deg,#e3e0e7 19%, #d3d3d3 92%);
+  }
+  .active-one {
+    font-size: 13px;
+    font-family: PingFangSC, PingFangSC-Medium;
+    font-weight: 550;
+    color: #ffffff;
+    background: linear-gradient(180deg,rgba(255,107,107,1), rgba(255,2,2,1));
+  }
+  .active-two {
+    font-size: 13px;
+    font-family: PingFangSC, PingFangSC-Medium;
+    font-weight: 550;
+    color: #ffffff;
+    background: linear-gradient(180deg,rgba(255,133,88,1), rgba(255,75,2,1));
+  }
+  .active-three {
+    font-size: 13px;
+    font-family: PingFangSC, PingFangSC-Medium;
+    font-weight: 550;
+    color: #ffffff;
+    background: linear-gradient(180deg,rgba(252,198,34,1), rgba(248,147,31,1));
+  }
+}
+
+
+
+// 销售统计页面隐藏table过滤，element添加的全部字段
+.el-table-filter__list {
+  li:first-child {
+    display: none !important;
+  }
+}
+
+
+
+
