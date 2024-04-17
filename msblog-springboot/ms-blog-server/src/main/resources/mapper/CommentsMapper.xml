@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.arnasoft.mapper.CommentsMapper">
+    <insert id="save">
+            insert into comments(article_id, content, parent_id, create_time, update_time, create_user, update_user)
+            VALUES (#{articleId},#{content},#{parentId},#{createTime}, #{updateTime}, #{createUser}, #{updateUser})
+    </insert>
+
+    <update id="update">
+        update comments
+        <set>
+            <if test="content">content=#{content},</if>
+            <if test="status != null">status = #{status}</if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <select id="pageQuery" resultType="com.arnasoft.vo.CommentsVO">
+        select * from comments
+        <where>
+            <if test="articleId != null">and article_id = #{articleId}</if>
+            <if test="parentId != null">and parent_id = #{parentId}</if>
+            <if test="status != null">and status = #{status}</if>
+        </where>
+        order by create_time desc
+    </select>
+
+    <select id="getById" resultType="com.arnasoft.entity.Comments">
+        select * from comments where id = #{id}
+    </select>
+</mapper>

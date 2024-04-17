@@ -1,0 +1,13 @@
+msblog:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    host: 
+    port: 3306
+    database: msblog
+    username: 
+    password: 
+  alioss:
+    endpoint: 
+    access-key-id: 
+    access-key-secret: 
+    bucket-name: 

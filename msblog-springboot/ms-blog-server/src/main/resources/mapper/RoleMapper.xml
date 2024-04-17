@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.arnasoft.mapper.RoleMapper">
+    <insert id="insert">
+        insert into role(role_name, role_en, menus, info, systemic, create_time, update_time, create_user,
+                         update_user)
+        VALUES (#{roleName}, #{roleEn}, #{menus}, #{info}, #{systemic}, #{createTime}, #{updateTime}, #{createUser}, #{updateUser})
+    </insert>
+
+    <update id="update">
+        update role
+        <set>
+            <if test="roleName != null and roleName != ''">role_name = #{roleName},</if>
+            <if test="roleEn != null and roleEn != ''">role_en = #{roleEn},</if>
+            <if test="menus != null and menus != ''">menus = #{menus},</if>
+            <if test="info">info = #{info},</if>
+            <if test="systemic != null">systemic = #{systemic},</if>
+            <if test="updateTime != null">update_Time = #{updateTime},</if>
+            <if test="updateUser != null">update_User = #{updateUser}</if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <select id="pageQuery" resultType="com.arnasoft.vo.RoleVO">
+        select * from role
+        <where>
+            <if test="roleName != null and roleName != ''">and role_name like concat('%', #{roleName}, '%')</if>
+            <if test="roleEn != null and roleEn != ''">and role_en like concat('%', #{roleEn}, '%')</if>
+        </where>
+    </select>
+</mapper>

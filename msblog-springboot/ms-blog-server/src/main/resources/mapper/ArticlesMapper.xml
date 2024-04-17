@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.arnasoft.mapper.ArticlesMapper">
+    <insert id="save">
+        insert into articles(title, category_id, tags_id, image, summary, content, views, comment_count, favorite_count, create_time, update_time, create_user, update_user)
+        VALUES(#{title}, #{categoryId}, #{tagsId},#{image}, #{summary}, #{content}, #{views}, #{commentCount}, #{favoriteCount}, #{createTime}, #{updateTime}, #{createUser}, #{updateUser})
+    </insert>
+
+    <update id="update">
+        update articles
+        <set>
+            <if test="title != null and title != ''">title = #{title},</if>
+            <if test="categoryId != null and categoryId != ''">category_id = #{categoryId},</if>
+            <if test="tagsId != null">tags_id = #{tagsId},</if>
+            <if test="content != null">content = #{content},</if>
+            <if test="image != null and image != ''">image = #{image},</if>
+            <if test="summary != null and summary != ''">summary = #{summary},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="commentCount != null">comment_count = #{commentCount},</if>
+            <if test="favoriteCount != null">favorite_count = #{favoriteCount},</if>
+            <if test="updateTime != null">update_Time = #{updateTime},</if>
+            <if test="updateUser != null">update_User = #{updateUser}</if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <select id="getById" resultType="com.arnasoft.entity.Articles">
+        SELECT a.*, c.name as categoryName, t.name as tagsName, admin.name AS createUserName FROM articles a inner join
+            category c on a.category_id = c.id LEFT JOIN tags t on a.tags_id = t.id LEFT JOIN admin on a.create_user = admin.id WHERE a.id = #{id}
+    </select>
+
+    <select id="pageQuery" resultType="com.arnasoft.vo.ArticlesPageVO">
+        SELECT a.*, c.name as categoryName, admin.name AS createUserName FROM articles a inner join
+            category c on a.category_id = c.id LEFT JOIN admin on a.create_user = admin.id
+        <where>
+            <if test="title != null and title != ''">
+                and a.title like concat('%', #{title}, '%')
+            </if>
+            <if test="categoryId != null">
+                and a.category_id = #{categoryId}
+            </if>
+            <if test="status != null">
+                and a.status = #{status}
+            </if>
+            <if test="createUser != null">
+                and a.create_user = #{createUser}
+            </if>
+        </where>
+        order by a.create_time desc
+    </select>
+</mapper>

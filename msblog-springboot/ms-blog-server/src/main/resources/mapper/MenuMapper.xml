@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.arnasoft.mapper.MenuMapper">
+    <insert id="insert">
+        insert into menu(title, parent_id, order_num, path, name, component, icon, menu_type, perms, redirect, create_time, update_time, create_user, update_user, status, visible, is_frame)
+        VALUES (#{title}, #{parentId}, #{orderNum}, #{path}, #{name}, #{component}, #{icon}, #{menuType}, #{perms},
+                #{redirect}, #{createTime}, #{updateTime}, #{createUser}, #{updateUser}, #{status}, #{visible},#{isFrame})
+    </insert>
+
+    <update id="update">
+        update menu
+        <set>
+            <if test="title != null and title != ''">title = #{title},</if>
+            <if test="parentId != null">parent_id = #{parentId},</if>
+            <if test="orderNum != null">order_num = #{orderNum},</if>
+            <if test="path != null">path = #{path},</if>
+            <if test="name != null">name = #{name},</if>
+            <if test="component != null">component = #{component},</if>
+            <if test="icon != null">icon = #{icon},</if>
+            <if test="menuType != null">menu_type = #{menuType},</if>
+            <if test="perms != null">perms = #{perms},</if>
+            <if test="visible != null">visible = #{visible},</if>
+            <if test="redirect != null">redirect = #{redirect},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="isFrame != null">is_frame = #{isFrame},</if>
+            <if test="updateTime != null">update_Time = #{updateTime},</if>
+            <if test="updateUser != null">update_User = #{updateUser}</if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <select id="pageQuery" resultType="com.arnasoft.vo.MenuVO">
+        select * from menu
+        <where>
+            <if test="title != null and title != ''">and title like concat('%', #{title}, '%')</if>
+            <if test="status != null and status != ''">and status = #{status}</if>
+        </where>
+        order by order_num asc ,create_time desc
+    </select>
+
+    <select id="list" resultType="com.arnasoft.vo.MenuVO">
+        SELECT m.* FROM admin a JOIN role r ON JSON_CONTAINS(a.role, CAST(r.id AS CHAR)) JOIN menu m ON JSON_CONTAINS(r.menus, CAST(m.id AS CHAR))
+        WHERE a.id = #{userId} AND a.`status` = 1;
+    </select>
+
+    <select id="all" resultType="com.arnasoft.vo.MenuVO">
+        select * from menu;
+    </select>
+</mapper>

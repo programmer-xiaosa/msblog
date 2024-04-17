@@ -1,0 +1,79 @@
+server:
+  port: 8090
+
+spring:
+  profiles:
+    active: dev
+  main:
+    allow-circular-references: true
+    banner-mode: off
+  datasource:
+    druid:
+      driver-class-name: ${msblog.datasource.driver-class-name}
+      url: jdbc:mysql://${msblog.datasource.host}:${msblog.datasource.port}/${msblog.datasource.database}?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+      username: ${msblog.datasource.username}
+      password: ${msblog.datasource.password}
+  redis:
+    database: 0
+    host: localhost
+    port: 6379
+    password: 1234
+    jedis:
+      pool:
+        #连接超时的最大时间
+        max-active: 1000
+        #等待空闲连接的最大等待时间（负数代表一直等待）
+        max-wait: -1ms
+        max-idle: 16
+        min-idle: 8
+
+mybatis:
+  #mapper配置文件
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.arnasoft.entity
+  configuration:
+    #开启驼峰命名
+    map-underscore-to-camel-case: true
+
+logging:
+  #配置文件日志路径
+  config: classpath:logback-spring.xml
+  level:
+    com:
+      arnasoft:
+        mapper: debug
+        service: info
+        controller: info
+
+msblog:
+  jwt:
+    # 设置jwt签名加密时使用的秘钥
+    admin-secret-key: arnasoft
+    # 设置jwt过期时间
+    admin-ttl: 72000000
+    # 设置前端传递过来的令牌名称
+    admin-token-name: token
+  alioss:
+    endpoint: ${msblog.alioss.endpoint}
+    access-key-id: ${sky.msblog.access-key-id}
+    access-key-secret: ${msblog.alioss.access-key-secret}
+    bucket-name: ${msblog.alioss.bucket-name}
+
+sa-token:
+  #HTTP请求头中哪个属性用来上传令牌
+  token-name: token
+  #过期时间（秒），设置为30天
+  timeout: 2592000
+  #临时有效期，设置为3天
+  activity-timeout: 259200
+  #不允许相同账号同时在线，新登陆的账号会挤掉原来登陆的账号
+  allow-concurrent-login: false
+  #在多人登陆相同账号的时候，是否使用相同的Token
+  is-share: false
+  token-style: uuid
+  #是否读取Cookie中的令牌
+  isReadCookie: false
+  #同端互斥
+  isConcurrent: false
+  #SaToken缓存令牌用其他的逻辑库，避免业务数据和令牌数据共用相同的Redis逻辑库
+  is-print: false

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.arnasoft.mapper.CategoryMapper">
+    <insert id="insert">
+        insert into category(name, sort, status, create_time, update_time, create_user, update_user)
+        VALUES (#{name}, #{sort}, #{status}, #{createTime}, #{updateTime}, #{createUser}, #{updateUser})
+    </insert>
+
+    <insert id="insertBatch" useGeneratedKeys="true" keyProperty="id">
+        insert into category(name, sort, create_time, update_time, create_user, update_user) values
+        <foreach collection="list" separator="," item="cate">
+            (#{cate.name},#{cate.sort},#{cate.createTime},
+            #{cate.updateTime}, #{cate.createUser}, #{cate.updateUser})
+        </foreach>
+    </insert>
+
+    <update id="update">
+        update category
+        <set>
+            <if test="name != null and name != ''">name = #{name},</if>
+            <if test="sort != null">sort = #{sort},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="updateTime != null">update_Time = #{updateTime},</if>
+            <if test="updateUser != null">update_User = #{updateUser}</if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <select id="pageQuery" resultType="com.arnasoft.vo.CategoryVO">
+        select * from category
+        <where>
+            <!--忽略大小写 SELECT * FROM category WHERE LOWER(name) = LOWER(#{name})-->
+            <if test="name != null and name != ''">and LOWER(name) like concat('%', LOWER(#{name}), '%')</if>
+            <if test="status != null and status != ''">and status = #{status}</if>
+        </where>
+        order by sort asc ,create_time desc
+    </select>
+</mapper>

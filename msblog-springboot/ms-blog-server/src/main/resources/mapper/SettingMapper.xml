@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.arnasoft.mapper.SettingMapper">
+    <insert id="insert">
+        insert into setting(blog_name, author, logo, avatar, `introduction`, github_home_page, gitee_home_page, bilibili_home_page, doc_library, create_time, update_time, create_user, update_user)
+        VALUES (#{blogName},#{author},#{logo},#{avatar},#{desc}, #{githubHomepage}, #{giteeHomepage}, #{bilibiliHomepage}, #{docLibrary}, #{createTime}, #{updateTime}, #{createUser}, #{updateUser})
+    </insert>
+
+    <update id="update">
+        update setting
+        <set>
+            <if test="blogName != null and blogName != ''">blog_name = #{blogName},</if>
+            <if test="author != null and author != ''">author = #{author},</if>
+            <if test="logo != null and logo != ''">logo = #{logo},</if>
+            <if test="avatar != null and avatar != ''">avatar = #{avatar},</if>
+            <if test="introduction != null and introduction != ''">introduction = #{introduction},</if>
+            <if test="githubHomepage != null and githubHomepage != ''">github_home_page = #{githubHomepage},</if>
+            <if test="giteeHomepage != null and giteeHomepage != ''">gitee_home_page = #{giteeHomepage},</if>
+            <if test="bilibiliHomepage != null and bilibiliHomepage != ''">bilibili_home_page = #{bilibiliHomepage},</if>
+            <if test="docLibrary != null and docLibrary != ''">doc_library = #{docLibrary},</if>
+            <if test="updateTime != null">update_Time = #{updateTime},</if>
+            <if test="updateUser != null">update_User = #{updateUser}</if>
+        </set>
+        where id = #{id}
+    </update>
+</mapper>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.arnasoft.mapper.AdminMapper">
+    <!--新增管理员-->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        insert into admin(name, username, email, password, phone, sex, id_number, image, role, create_time, update_time, create_user, update_user)
+        VALUES (#{name}, #{username}, #{email}, #{password}, #{phone}, #{sex}, #{idNumber}, #{image}, #{role}, #{createTime}, #{updateTime}, #{createUser}, #{updateUser})
+    </insert>
+
+    <!--更新数据-->
+    <update id="update">
+        update admin
+        <set>
+            <if test="name != null">name = #{name},</if>
+            <if test="username != null">username = #{username},</if>
+            <if test="password != null">password = #{password},</if>
+            <if test="phone != null">phone = #{phone},</if>
+            <if test="sex != null">sex = #{sex},</if>
+            <if test="idNumber != null">id_Number = #{idNumber},</if>
+            <if test="updateTime != null">update_Time = #{updateTime},</if>
+            <if test="updateUser != null">update_User = #{updateUser},</if>
+            <if test="root != null">root = #{root},</if>
+            <if test="email != null">email = #{email},</if>
+            <if test="image != null">image = #{image},</if>
+            <if test="role != null">role = #{role},</if>
+            <if test="status != null">status = #{status}</if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--根据用户名或者邮箱查询用户-->
+    <select id="getByUserNameOrEmail" resultType="com.arnasoft.entity.Admin">
+        select * from admin
+        <where>
+            <if test="email != null and email != ''">
+                and email =#{email}
+            </if>
+            <if test="username != null and username != ''">
+                and username = #{username}
+            </if>
+            <if test="phone != null and phone != ''">
+                and phone = #{phone}
+            </if>
+            <if test="idNumber != null and idNumber != ''">
+                and id_number = #{idNumber}
+            </if>
+        </where>
+    </select>
+
+    <!--分页查询-->
+    <select id="pageQuery" resultType="com.arnasoft.vo.AdminVO">
+        select * from admin
+        <where>
+            <if test="name != null and name != ''">
+                and name like concat('%', #{name}, '%')
+            </if>
+            <if test="username != null and username != ''">
+                and username like concat('%', #{username}, '%')
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+        </where>
+    </select>
+
+    <!--根据用户id查询权限集合-->
+    <select id="searchUserPermissions" resultType="string">
+        SELECT m.perms FROM admin a JOIN role r ON JSON_CONTAINS(a.role, CAST(r.id AS CHAR))
+                                    JOIN menu m ON JSON_CONTAINS(r.menus, CAST(m.id AS CHAR))
+        WHERE a.id = #{userId} AND a.`status` = 1;
+    </select>
+
+    <!--根据用户id查询角色集合-->
+    <select id="searchUserRoles" resultType="com.arnasoft.vo.RoleVO">
+        SELECT r.id,r.role_name, r.role_en, r.menus FROM admin a JOIN role r ON JSON_CONTAINS(a.role, CAST(r.id AS CHAR)) WHERE a.id = #{userId} AND a.`status` = 1;
+    </select>
+
+    <!--根据用户id查询菜单集合-->
+    <select id="getMenusByUserId" resultType="com.arnasoft.vo.AdminMenuVo">
+        SELECT m.* FROM admin a JOIN role r ON JSON_CONTAINS(a.role, CAST(r.id AS CHAR)) JOIN menu m ON JSON_CONTAINS(r.menus, CAST(m.id AS CHAR))
+                   WHERE a.id = #{userId} AND m.`status` = 1;
+#  AND m.menu_type IN  ('M', 'C')
+    </select>
+
+    <select id="getRoleNameByIds" resultType="string">
+        SELECT role.role_name FROM role WHERE id IN
+        <foreach collection="ids" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </select>
+</mapper>
