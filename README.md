@@ -106,10 +106,6 @@ Postman 下载地址：[https://www.postman.com/downloads/](https://www.postman.
 
 > 答：可以的，建议使用 yarn，yarn 比 npm 速度快，主要是安装版本统一。
 
-2. 启动 Koa2 项目报错，请问原因？
-
-> 答：首先，请检查一下使用 npm 或 yarn 安装依赖包没。然后，再请检查一下确保安装好数据库，新建好数据库：boblog，请看上面的数据库配置。最后看下启动打印日志是否有报错的信息。
-
 3. ... 更多问题请到 [Issues](https://github.com/lfb/nodejs-koa-blog/issues)查阅，或者有问题请到 [Issues 提问](https://github.com/lfb/nodejs-koa-blog/issues/new)。
 
 ## License
