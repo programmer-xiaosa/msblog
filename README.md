@@ -25,7 +25,7 @@
 │                      ├─enumeration
 │                      ├─exception 全局异常捕获类
 │                      ├─json
-│                      ├─properties 
+│                      ├─properties 配置类
 │                      ├─result 返回类
 │                      └─utils 工具类
 ├─ms-blog-pojo
@@ -46,9 +46,9 @@
         │  │          ├─annotation
         │  │          ├─aspect
         │  │          ├─config
-        │  │          │  └─sa_token
+        │  │          │  └─sa_token 令牌生成配置类
         │  │          ├─controller
-        │  │          │  └─admin
+        │  │          │  └─admin 
         │  │          ├─handler
         │  │          ├─interceptor
         │  │          ├─mapper
@@ -122,7 +122,7 @@
 
 ### 1.3 接口文档
 
-[http://124.220.96.197:8090/doc.html](https://github.com/lfb/nodejs-koa-blog/blob/master/doc/admin.md)
+[http://124.220.96.197:8090/doc.html](http://124.220.96.197:8090/doc.html)
 
 ### 1.4 项目展示
 
