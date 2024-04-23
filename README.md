@@ -259,13 +259,16 @@ Postman 下载地址：[https://www.postman.com/downloads/](https://www.postman.
 
   - PC端（展示博客）
   - 小程序端（方向用户分享和使用）
-  - 微信H5网页（独立开发移动端，学习怎么获取用户code，access_token，用户信息，jsjdk和微信支付，分享卡片制作）
+  - 微信H5网页（独立开发移动端，学习怎么获取用户code，access_token，用户信息，jssdk和微信支付，分享卡片制作）
   - App（使用uniapp或者flutter开发多端APP，到时候根据实际情况选一个）
   - 桌面端（采用Electron或者Flutter开发桌面端应用）
 
 ### 2.9 项目部署
 
-小伙伴们可以使用 传统方式部署也可以使用 docker jenkins 自动化部署
+小伙伴们可以使用传统方式部署也可以使用 docker jenkins 自动化部署，推荐使用docker容器自动化部署
+
+- [Docker 教程](https://www.quanxiaoha.com/docker/docker-tutorial.html)
+- [Linux常用命令](https://www.quanxiaoha.com/linux-command/linux-shutdown.html)
 
 ## 三、FAQ
 
@@ -278,6 +281,9 @@ Postman 下载地址：[https://www.postman.com/downloads/](https://www.postman.
 > 答：本项目采用的事vue-admin-template模板，建议使用 node版本是 v14.16.0
 
 3. ... 更多问题请到 [Issues](https://github.com/programmer-xiaosa/msblog/issues)查阅，或者有问题请到 [Issues 提问](https://github.com/programmer-xiaosa/msblog/issues/new)。
+4. 有没有已上线的个人博客网站？
+
+> 答：最近学习犬小哈老师的图文教程做出了一个完美的博客管理系统，如小伙伴们喜欢可以在issue留言，我给大家分享源码，在这里尊重犬小哈老师的开源项目我就不分享代码了 [个人博客](https://blog.arnasoft.site/#/)
 
 ## License
 
