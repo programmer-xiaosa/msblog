@@ -10,47 +10,47 @@
 
   - 登录页面
 
-  ![](.\pic\login.png)
+  ![](./pic/login.png)
 
   - 用户列表
 
-  ![](.\pic\admin_list.png)
+  ![](./pic/admin_list.png)
 
   - 用户新增
 
-  ![](.\pic\admin_add.png)
+  ![](./pic/admin_add.png)
 
   - 用户数据excel导出
 
-  ![](.\pic\admin_excel_dao.png)
+  ![](./pic/admin_excel_dao.png)
 
   - 角色列表
 
-  ![](.\pic\role_list.png)
+  ![](./pic/role_list.png)
 
   - 角色新增和编辑
 
-  ![](.\pic\role_add.png)
+  ![](./pic/role_add.png)
 
-  ![](.\pic\admin_edit.png)
+  ![](./pic/admin_edit.png)
 
   - 菜单管理
 
-  ![](.\pic\menu_list_edit_icon.png)
+  ![](./pic/menu_list_edit_icon.png)
 
   - 博文管理-分类模块
 
-  ![](.\pic\article_category_list.png)
+  ![](./pic/article_category_list.png)
 
-  ![](.\pic\article_category_add.png)
+  ![](./pic/article_category_add.png)
 
   - 博文管理-标签模块
 
-  ![](.\pic\article_tag_list.png)
+  ![](./pic/article_tag_list.png)
 
   - 设置模块
 
-  ![](.\pic\setting.png)
+  ![](./pic/setting.png)
 
 ## 二、使用项目
 
