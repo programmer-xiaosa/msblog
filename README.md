@@ -54,7 +54,7 @@
 
 ## 二、使用项目
 
-### 2.1 克隆项目（后端工程）
+### 2.1 克隆项目
 
 ```
 # 克隆项目代码
@@ -62,7 +62,7 @@
 git clone git@github.com:programmer-xiaosa/msblog.git
 ```
 
-### 2.2 项目架构
+### 2.2 后端工程项目架构
 
 `msblog-springboot` 后端代码
 
@@ -138,7 +138,7 @@ mysql -uroot -p (回车然后输入你的本机数据库密码)
 CREATE DATABASE IF NOT EXISTS msblog DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 ```
 
-### 2.4 前端工程
+### 2.4 前端工程项目架构
 
  `msblog-vue`  前端工程
 
@@ -255,7 +255,7 @@ Postman 下载地址：[https://www.postman.com/downloads/](https://www.postman.
   - 作者头像
   - 介绍语
 
-### 2.8 待开发的页面和功能
+### 2.8 待开发
 
   - PC端（展示博客）
   - 小程序端（方向用户分享和使用）
@@ -265,7 +265,7 @@ Postman 下载地址：[https://www.postman.com/downloads/](https://www.postman.
 
 ### 2.9 项目部署
 
-小伙伴们可以使用传统方式部署也可以使用 docker jenkins 自动化部署，推荐使用docker容器自动化部署
+小伙伴们可以使用传统方式部署也可以使用 `docker jenkins` 自动化部署，推荐使用 `docker`
 
 - [Docker 教程](https://www.quanxiaoha.com/docker/docker-tutorial.html)
 - [Linux常用命令](https://www.quanxiaoha.com/linux-command/linux-shutdown.html)
@@ -276,9 +276,9 @@ Postman 下载地址：[https://www.postman.com/downloads/](https://www.postman.
 
 > 答：可以的，建议使用 yarn，yarn 比 npm 速度快，主要是安装版本统一。
 
-2. npm 下载依赖包失败？
+2. npm 下载依赖包失败，卡住？
 
-> 答：本项目采用的事vue-admin-template模板，建议使用 node版本是 v14.16.0
+> 答：本项目采用的事vue-admin-template模板，建议使用 node版本是 v14.16.0，小伙伴们可以使用 `n` 或者 `nvm` 来切换电脑上的node版本，这样可以使用多个版本的系统，不会冲突。
 
 3. ... 更多问题请到 [Issues](https://github.com/programmer-xiaosa/msblog/issues)查阅，或者有问题请到 [Issues 提问](https://github.com/programmer-xiaosa/msblog/issues/new)。
 4. 有没有已上线的个人博客网站？
@@ -287,7 +287,7 @@ Postman 下载地址：[https://www.postman.com/downloads/](https://www.postman.
 
 ## License
 
-[MIT](https://github.com/lfb/nodejs-koa-blog/blob/master/LICENSE), by [programmer-xiaosa](https://github.com/programmer-xiaosa/msblog/commits?author=programmer-xiaosa)
+[MIT](https://github.com/programmer-xiaosa/msblog/blob/main/LICENSE), by [programmer-xiaosa](https://github.com/programmer-xiaosa/msblog/commits?author=programmer-xiaosa)
 
 喜欢或对你有帮助的话，请你点一个星星 <strong style='color:red;'>star</strong> 鼓励我，或者您有更好的建议和意见，请提出来告知我，可以留言 [Issues](https://github.com/programmer-xiaosa/msblog/issues/new)。希望能够帮助到你学习！Thanks
 
