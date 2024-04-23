@@ -1,13 +1,13 @@
 msblog:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    host: 
-    port: 3306
-    database: msblog
-    username: 
-    password: 
-  alioss:
-    endpoint: 
-    access-key-id: 
-    access-key-secret: 
-    bucket-name: 
+    host: #数据库ip地址
+    port: #数据库端口号
+    database: #数据库名：msblog
+    username: #数据库用户名
+    password: #数据库密码
+  alioss: # alioss配置可以参考这个 https://blog.csdn.net/kenkao/article/details/128880448 ，如果不知道怎么可以提issue
+    endpoint:   #用户名
+    access-key-id:  #accessKeyId
+    access-key-secret:  #secretKey
+    bucket-name:  #你创建的bucket名称

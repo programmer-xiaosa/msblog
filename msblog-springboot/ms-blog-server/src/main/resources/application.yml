@@ -14,10 +14,10 @@ spring:
       username: ${msblog.datasource.username}
       password: ${msblog.datasource.password}
   redis:
-    database: 0
-    host: localhost
-    port: 6379
-    password: 1234
+    database: 0 #默认第一个数据库
+    host: localhost #ip地址
+    port: 6379 #端口号
+    password: 1234 #redis密码
     jedis:
       pool:
         #连接超时的最大时间

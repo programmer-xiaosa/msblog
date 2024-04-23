@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ms-blog.iml" filepath="$PROJECT_DIR$/ms-blog.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ms-blog-common/ms-blog-common.iml" filepath="$PROJECT_DIR$/ms-blog-common/ms-blog-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ms-blog-pojo/ms-blog-pojo.iml" filepath="$PROJECT_DIR$/ms-blog-pojo/ms-blog-pojo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ms-blog-server/ms-blog-server.iml" filepath="$PROJECT_DIR$/ms-blog-server/ms-blog-server.iml" />
+    </modules>
+  </component>
+</project>
